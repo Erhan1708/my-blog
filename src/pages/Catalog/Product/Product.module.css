@@ -1,0 +1,49 @@
+.product {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.product img {
+   width: 450px;
+   margin-right: 40px;
+}
+
+.title {
+   margin: 20px 0;
+}
+
+.title h3 {
+   margin: 7px 0;
+}
+
+.memory span {
+   margin: 0 10px 0 0;
+}
+
+.Connectivity span {
+   margin: 0 10px 0 0;
+}
+
+.caseSize span {
+   margin: 0 10px 0 0;
+}
+
+
+.characteristics {
+   display: flex;
+}
+
+.characteristics p {
+   width: 270px;
+   margin: 15px 15px 15px 0;
+}
+
+.quantity_status {
+   border-radius: 30px;
+   background-color: red;
+   padding: 5px 10px;
+   color: white;
+   width: 200px;
+   text-align: center;
+}

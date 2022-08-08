@@ -1,0 +1,12 @@
+.catalog {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+.catalog a{
+   margin-left: 10px;
+}
+.products{
+   display: flex;
+   align-items: center;
+}

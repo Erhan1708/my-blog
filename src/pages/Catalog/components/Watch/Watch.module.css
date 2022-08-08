@@ -1,0 +1,24 @@
+.watchs {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   width: 1000px;
+}
+
+.block_watch img {
+   width: 200px;
+}
+
+.block_watch {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0 15px ;
+}
+
+.block_watch h3 {
+   font-size: 16px;
+   width: 150px;
+}

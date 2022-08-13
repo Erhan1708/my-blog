@@ -1,40 +1,49 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useContext } from "react";
 import styles from "./Iphone.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import ProductContext from "../../../../context/context";
 // import { iphones } from "../../../../constants/iphones";
 
 const Iphone = () => {
-   const [iphone, setIphone] = useState([]);
+	const { products, setProducts } = useContext(ProductContext);
 
-   useEffect(() => {
-      fetch("http://localhost:3001/iphones")
-         .then(response => {
-            if (response.status === 200) {
-               console.log(response);
-               return response.json()
-            }
-         })
-         .then(data => setIphone(data))
-   }, []);
+	const params = useParams();
 
+	// const getProduct = (data) => {
+	// 	const id = data.id;
+	// 	let cart = JSON.parse(localStorage.getItem("cart")) || {};
+	// 	cart[id] = { ...data, count: 1 };
+	// 	localStorage.setItem("card", JSON.stringify(cart));
+	// };
+
+	useEffect(() => {
+		fetch(`http://localhost:3001/${params.title}`)
+			.then((response) => {
+				if (response.status === 200) {
+					console.log(response);
+					return response.json();
+				}
+			})
+			.then((data) => setProducts(data));
+	}, [params.title, setProducts]);
 	return (
 		<div className={styles.iphone}>
-			<div>
-				<h1>Iphone</h1>
-			</div>
 			<div className={styles.iphones}>
-				{iphone.map((postIphone) => (
-					<div className={styles.block_iphone}>
-						<Link to={`/product/${postIphone.id}`}>
-							<img src={postIphone.img} alt="" />
+				{products.map((post) => (
+					<div key={post.id} className={styles.block_iphone}>
+						<Link to={`/product/${post.ProductTitle}/${post.id}`}>
+							<img src={post.img} alt="" />
 						</Link>
-						<Link to={`/product/${postIphone.id}`}>
-							<h3>{postIphone.title}</h3>
+						<Link to={`/product/${post.ProductTitle}/${post.id}`}>
+							<h3>{post.title}</h3>
 						</Link>
-						<h4>от {postIphone.price} coм</h4>
+						<h4>от {post.price} coм</h4>
 						<Link
 							style={{ color: "rgb(0, 162, 255)" }}
-							to={`/product/${postIphone.id}`}>
+							// onClick={() => getProduct(post)}
+                     to={`/product/${post.ProductTitle}/${post.id}`}
+						>
+							
 							Выбрать
 						</Link>
 					</div>

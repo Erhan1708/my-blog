@@ -9,7 +9,6 @@ import Catalog from "./pages/Catalog/Catalog";
 import Iphone from "./pages/Catalog/components/Iphone/Iphone";
 import "./App.css";
 import Product from "./pages/Catalog/Product/Product";
-import Watch from "./pages/Catalog/components/Watch/Watch";
 
 const App = () => {
 	return (
@@ -19,10 +18,9 @@ const App = () => {
 				<Route path="/" element={<Main pageName="Главная" />} />
 				<Route path="/about" element={<About/>} />
 				<Route path="/contacts" element={<Contacts pageContacs="Контакты" />} />
-				<Route path="/catalog" element={<Catalog />} />
-				<Route path="/catalog/iphone" element={<Iphone />} />
-				<Route path="/catalog/watch" element={< Watch/>} />
-				<Route path="/product/:id" element={<Product />} />
+				<Route path="/catalog/" element={<Catalog />} />
+				<Route path="/catalog/:title/" element={<Iphone />} />
+				<Route path="/product/:title/:id" element={<Product />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

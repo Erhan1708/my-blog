@@ -22,7 +22,7 @@ const About = () => {
 		<div className={styles.about}>
          <h1>О нас</h1>
          <ul>
-            {users.map(item => <li>{item.name}</li>)}
+            {users.map(item => <li key={item.id}>{item.name}</li>)}
          </ul>
 		</div>
 	);
